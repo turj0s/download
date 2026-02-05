@@ -39,6 +39,7 @@ body {
 }
 
 .site-header {
+  width: min(1100px, calc(100% - 2rem));
   max-width: 1100px;
   margin: 1.5rem auto 0;
   padding: 0.9rem 1.2rem;
@@ -108,7 +109,7 @@ nav a:hover::after {
 }
 
 main {
-  max-width: 1100px;
+  width: min(1100px, 100%);
   margin: 2.5rem auto 4rem;
   padding: 0 1.2rem;
 }
@@ -374,16 +375,101 @@ footer {
 }
 
 @media (max-width: 940px) {
+  .site-header {
+    border-radius: 16px;
+    position: static;
+    margin-top: 1rem;
+    padding: 0.9rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  main {
+    margin-top: 1.4rem;
+    padding: 0 0.85rem;
+  }
+
   .hero {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .downloader-card {
+    padding: 1rem;
+    border-radius: 14px;
+  }
+
+  .input-row {
     grid-template-columns: 1fr;
   }
 
+  .controls-grid,
   .features {
     grid-template-columns: 1fr;
   }
 
-  .site-header {
-    border-radius: 16px;
-    position: static;
+  .action-row {
+    flex-direction: column;
+  }
+
+  .action-row button,
+  .input-row button {
+    width: 100%;
+  }
+
+  .toast {
+    left: 0.85rem;
+    right: 0.85rem;
+    bottom: 0.85rem;
+    text-align: center;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .brand-pill {
+    width: 30px;
+    height: 30px;
+    font-size: 0.78rem;
+  }
+
+  .site-header h1 {
+    font-size: 0.86rem;
+    letter-spacing: 0.04em;
+  }
+
+  .hero h2 {
+    font-size: clamp(1.45rem, 9vw, 2rem);
+    line-height: 1.2;
+  }
+
+  .eyebrow {
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+  }
+
+  input,
+  select,
+  button {
+    min-height: 44px;
+  }
+
+  .progress-shell p,
+  label,
+  nav a,
+  details p {
+    font-size: 0.84rem;
+  }
+
+  footer {
+    padding-bottom: 4rem;
   }
 }
